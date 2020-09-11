@@ -34,10 +34,10 @@ export class CalculatorComponent implements OnInit {
   }
 
   calculateToEur(): void{
-    this.toEurAmmount = this.inputAmount * this.currency.rate;
+    this.fromEurAmount = this.inputAmount * this.currency.rate;
   }
   calculateFromEur(): void{
-    this.fromEurAmount = this.inputAmount / this.currency.rate;
+    this.toEurAmmount = this.inputAmount / this.currency.rate;
   }
   getDataFromApi(){
     this.httpService.getCurrencyData(this.inputModel.inputAbbreviation).subscribe((data: Currency) => {
