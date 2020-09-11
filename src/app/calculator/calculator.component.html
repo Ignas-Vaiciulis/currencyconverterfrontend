@@ -1,0 +1,22 @@
+<form (ngSubmit)="calculate()" #calculatorForm="ngForm">
+  <div class="form-group">
+    <label for="inputAbbreviation">Currency</label>
+    <select class="form-control" id="inputAbbreviation" required
+            [(ngModel)]="inputModel.inputAbbreviation" name="inputAbbreviation">
+      <option *ngFor="let abbreviation of availableAbbreviations" [value]="abbreviation">{{abbreviation}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="inputAmount">Amount</label>
+    <input type="number" class="form-control" id="inputAmount"
+           required
+           [(ngModel)]="inputAmount" name="inputAmount">
+  </div>
+  <div>
+    <button type="button" class="btn btn-default" (click)="calculate()">Calculate</button>
+  </div>
+  <div [hidden]="!submitted">
+    <h2>{{calculatedWithAmount|number}} {{currency.abbreviation}} = {{toEurAmmount|number}} EUR</h2>
+    <h2>{{calculatedWithAmount|number}} EUR = {{fromEurAmount|number}} {{currency.abbreviation}}</h2>
+  </div>
+</form>

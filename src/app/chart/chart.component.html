@@ -1,0 +1,23 @@
+<form (ngSubmit)="showChart()" #chartForm="ngForm">
+  <div class="form-group">
+    <label for="inputStartDate">From</label>
+    <input type="date" class="form-control" id="inputStartDate"
+           required
+            [(ngModel)]="inputStartDate" name="inputStartDate">
+  </div>
+  <div class="form-group">
+    <label for="inputEndDate">To</label>
+    <input type="date" class="form-control" id="inputEndDate"
+           required
+           [(ngModel)]="inputEndDate" name="inputAmount">
+  </div>
+  <div>
+    <button type="button" class="btn btn-default" (click)="showChart()">Show History</button>
+  </div>
+  <div [hidden]="!submitted">
+    <div class="chart-container" style="position: relative; height:40vh; width:70vw">
+      <canvas id="canvas">{{ lineChart }}</canvas>
+    </div>
+  </div>
+</form>
+
